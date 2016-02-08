@@ -67,7 +67,6 @@ Functional spec
 Prototype **one** of the following projects:
 
 1. Delivery Recommendation Service
-2.
 
 The UX/UI is totally up to you. If you like, get creative and add additional
 features a user might find useful!
