@@ -67,9 +67,12 @@ Functional spec
 Prototype **one** of the following projects:
 
 1. Delivery Recommendation Service
+2. Delivery Review Service
 
 The UX/UI is totally up to you. If you like, get creative and add additional
-features a user might find useful!
+features a user might find useful! Each specification is as light weight as possible.  Add as much
+extra detail to the models as you find useful.
+
 
 ### Delivery Recommendation Service
 
@@ -78,6 +81,10 @@ the following [Swagger specification](specs/delivery_recommendations.yaml) such 
 driver accepted their first recommendation, all deliveries would be completed with least amount of
 missed delivery commitments.
 
+### Delivery Review Service
+Given a data set of drivers and a data set of deliveries, write a RESTful service that implements
+the following [Swagger specification](specs/delivery_reviews.yaml). You should also extend the
+specification to retrieve a list of reviews for a driver.
 
 Technical spec
 --------------
