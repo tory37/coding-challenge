@@ -91,24 +91,6 @@ definitions:
         type: number
         format: float
 
-  Delivery:
-    type: object
-    properties:
-      delivery_id:
-        type: string
-      deliver_by_timestamp:
-        type: string
-        format: datetime
-      pickup_location:
-        $ref: '#/definitions/Location'
-      dropoff_location:
-        $ref: '#/definitions/Location'
-
-  DeliveryList:
-    type: array
-    items:
-      $ref: '#/definitions/Delivery'
-
   Review:
     type: object
     properties:
