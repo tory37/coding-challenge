@@ -60,7 +60,6 @@ Here are some technologies we are more familiar with:
 
 * JavaScript
 * PHP
-* Python
 
 You are also free to use any web framework. If you choose to use a framework
 that results in boilerplate code in the repository, please detail in your
