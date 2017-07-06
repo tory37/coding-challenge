@@ -40,6 +40,17 @@ export class AppService {
       .catch((err) => Observable.of(this.errorObj(err)));
   }
 
+  public createDeliveryReview$(driverId: string, deliveryId: string, rating: number, description: string): Observable<any> {
+    let body = {
+      "rating": rating,
+      "description": description
+    }
+
+    return this.http.post("/drivers/" + driverId + "/deliveries/" + deliveryId + "/review", body)
+      .map((data) => data.json())
+      .catch((err) => Observable.of(this.errorObj(err)));
+  }
+
   private errorObj(err: any) {
     return { error: err };
   }
