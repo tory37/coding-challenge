@@ -4,6 +4,8 @@ var express = require('express'),
     app = express(),
     port = process.env.PORT || 3000,
 
+    keys = require('./keys.json'),
+
     mongoose = require('mongoose'),
     Driver = require('./api/models/driverModel'),
     DeliveryReview = require('./api/models/deliveryReviewModel'),
@@ -12,7 +14,7 @@ var express = require('express'),
     bodyParser = require('body-parser');
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/Waitrchallengedb');
+mongoose.connect('mongodb://' + keys.mongoUser + ':' + keys.mongoPass + '@' + keys.mongoHost  + ':' + keys.mongoPort + '/' + keys.mongoDatabase);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
