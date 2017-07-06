@@ -51,6 +51,13 @@ export class AppService {
       .catch((err) => Observable.of(this.errorObj(err)));
   }
 
+  public getDeliveryReview$(driverId: string, deliveryId: string ): Observable<any> {
+
+    return this.http.get("/drivers/" + driverId + "/deliveries/" + deliveryId + "/review")
+      .map((data) => data.json())
+      .catch((err) => Observable.of(this.errorObj(err)));
+  }
+
   public createDriverReview$(driverId: string, rating: number, description: string): Observable<any> {
     let body = {
       "rating": rating,

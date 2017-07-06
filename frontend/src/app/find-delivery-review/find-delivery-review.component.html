@@ -1,3 +1,43 @@
-<p>
-  find-delivery-review works!
-</p>
+<div *ngIf="drivers != null && !drivers?.error">
+
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+    <select [(ngModel)]="driverId" name="driverId">
+      <option *ngFor="let driver of drivers" [value]="driver._id">{{driver.name}}</option>
+    </select>
+    <input name="deliveryId" ngModel required #deliveryId="ngModel" placeholder="Enter Delivery ID">
+    <button>Submit</button>
+  </form>
+
+  <div *ngIf="reviews != null && !reviews?.error">
+    <div *ngIf="reviews.length > 0">
+      Delivery Review Found
+      <div class="row dark-background">
+        <div class="col-sm-3"> Driver ID </div>
+        <div class="col-sm-3"> Delivery ID </div>
+        <div class="col-sm-3"> Description </div>
+        <div class="col-sm-3"> Rating </div>
+      </div>
+      <div class="row" *ngFor="let review of reviews">
+        <div class="col-sm-3"> {{review.driver_id}}</div>
+        <div class="col-sm-3"> {{review.delivery_id}}</div>
+        <div class="col-sm-3"> {{review.description}} </div>
+        <div class="col-sm-3"> {{review.rating}} </div>
+      </div>
+    </div>
+    <div *ngIf="reviews.length == 0">
+      No Reviews Found
+    </div>
+  </div>
+
+  <div *ngIf="reviews?.error">
+    Error creating review: {{review.error}}
+  </div>
+</div>
+
+<div *ngIf="drivers == null">
+  Loading...
+</div>
+
+<div *ngIf="drivers?.error">
+  Error getting drivers: {{drivers.error}}
+</div>
