@@ -1,3 +1,23 @@
-<p>
-  find-driver works!
-</p>
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+  <input name="driverId" ngModel required #driverId="ngModel" placeholder="Enter Driver Id">
+  <button>Submit</button>
+</form>
+
+<div *ngIf="driver != null && !driver?.error">
+  <div class="row dark-background">
+    <div class="col-sm-3"> ID </div>
+    <div class="col-sm-3"> Name </div>
+    <div class="col-sm-3"> Latitude </div>
+    <div class="col-sm-3"> Longitude </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3"> {{driver._id}}</div>
+    <div class="col-sm-3"> {{driver.name}}</div>
+    <div class="col-sm-3"> {{driver.location ? driver.location.latitude : "Unknown"}} </div>
+    <div class="col-sm-3"> {{driver.location ? driver.location.longitude : "Unknown"}} </div>
+  </div>
+</div>
+
+<div *ngIf="driver?.error">
+  Error getting driver: {{driver.error}}
+</div>

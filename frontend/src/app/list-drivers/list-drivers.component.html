@@ -2,7 +2,7 @@
     Drivers
   </div>
 
-<div *ngIf="(drivers$ | async)">
+<div *ngIf="(drivers$ | async) != null && !(drivers$ | async)?.error">
   <div class="row dark-background">
     <div class="col-sm-3"> ID </div>
     <div class="col-sm-3"> Name </div>
@@ -12,10 +12,15 @@
   <div class="row" *ngFor="let driver of (drivers$ | async)">
     <div class="col-sm-3"> {{driver._id}}</div>
     <div class="col-sm-3"> {{driver.name}}</div>
-    <div class="col-sm-3"> {{driver.location.latitude}} </div>
-    <div class="col-sm-3"> {{driver.location.longitude}} </div>
+    <div class="col-sm-3"> {{driver.location ? driver.location.latitude : "Unknown"}} </div>
+    <div class="col-sm-3"> {{driver.location ? driver.location.longitude : "Unknown"}} </div>
   </div>
 </div>
+
+<div *ngIf="(drivers$ | async)?.error">
+  Error getting drivers: {{(drivers$ | async)?.error}}
+</div>
+
 <div *ngIf="(drivers$ | async) == null">
   Loading...
 </div>

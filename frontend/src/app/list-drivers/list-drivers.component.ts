@@ -14,6 +14,6 @@ export class ListDriversComponent implements OnInit {
   drivers$: Observable<any>;
 
   ngOnInit() {
-      this.drivers$ = this.appSvc.getDrivers();
+      this.drivers$ = this.appSvc.getDrivers$();
   }
 }

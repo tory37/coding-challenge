@@ -19,6 +19,10 @@ app.use(bodyParser.json());
 
 app.use(express.static(__dirname));
 
+
+var routes = require('./api/routes/driverRoutes');
+routes(app);
+
 app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
@@ -28,25 +32,6 @@ app.use(function (req, res, next) {
     err.status = 404;
     next(err);
 });
-
-// app.use(function(req, res, next) {
-//     var accept = req.accepts('html', 'json', 'xml');
-//     if (accept !== 'html') {
-//         return next();
-//     }
-
-//     var ext = path.extname(req.path);
-//     if (ext !== '') {
-//         return next();
-//     }
-
-//     fs.createReadStream(staticRoot + 'index.html').pipe(res);
-// })
-
-
-
-var routes = require('./api/routes/driverRoutes');
-routes(app);
 
 app.listen(port, function () {
     console.log('App running on port' + port);

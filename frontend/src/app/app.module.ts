@@ -16,6 +16,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 import { AppService } from './app.service';
 import { HttpModule } from '@angular/http';
+import { FormsModule }   from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: 'list-drivers', component: ListDriversComponent },
@@ -45,6 +46,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     HttpModule,
+    FormsModule,
     RouterModule.forRoot(
       appRoutes,
       {enableTracing: true }

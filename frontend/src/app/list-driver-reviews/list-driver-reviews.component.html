@@ -1,3 +1,36 @@
-<p>
-  list-driver-reviews works!
-</p>
+<div class="col-sm-12">
+  Drivers
+</div>
+
+<div *ngIf="(drivers$ | async) != null && !(drivers$ | async)?.error" class="row">
+  <select [(ngModel)]="selectedDriver" (ngModelChange)="getDriverReviews($event)">
+      <option *ngFor="let driver of (drivers$ | async)" [ngValue]="driver._id">{{driver.name}}</option>
+  </select>
+</div>
+
+<div *ngIf="(drivers$ | async)?.error")>
+  Error getting drivers: {{(drivers$ | async).error}}
+</div>
+
+<div *ngIf="(driverReviews$ | async) != null && !(driverReviews$ | async)?.error">
+  <div class="row dark-background">
+    <div class="col-sm-3"> ID </div>
+    <div class="col-sm-3"> Rating </div>
+    <div class="col-sm-3"> Description </div>
+    <div class="col-sm-3"> Driver ID </div>
+  </div>
+  <div class="row" *ngFor="let review of (driverReviews$ | async)">
+    <div class="col-sm-3"> {{review._id}}</div>
+    <div class="col-sm-3"> {{review.rating}}</div>
+    <div class="col-sm-3"> {{review.description}} </div>
+    <div class="col-sm-3"> {{review.driverId}} </div>
+  </div>
+</div>
+
+<div *ngIf="(driverReviews$ | async)?.error">
+  Error getting reviews: {{(driverReviews$ | async).error}}
+</div>
+
+<div *ngIf="(drivers$ | async) == null">
+  Loading...
+</div>

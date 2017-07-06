@@ -23,7 +23,7 @@ exports.CreateDriver = function(req, res) {
 
 exports.GetDriver = function(req, res) {
     console.log("Driver Id: " + req.params.driverId);
-    Driver.find({ _id: req.params.driverId }, function(err, driver) {
+    Driver.findOne({ _id: req.params.driverId }, function(err, driver) {
         if (err)
             res.send(404, "Error getting driver: " + err);
         res.json(200, driver);
