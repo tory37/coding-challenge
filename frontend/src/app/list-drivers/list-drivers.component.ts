@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from '../app.service';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-list-drivers',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListDriversComponent implements OnInit {
 
-  constructor() { }
+  constructor(private appSvc: AppService) { }
+
+  drivers$: Observable<any>;
 
   ngOnInit() {
+      this.drivers$ = this.appSvc.getDrivers();
   }
-
 }

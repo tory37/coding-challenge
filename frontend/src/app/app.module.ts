@@ -14,6 +14,9 @@ import { FindDeliveryReviewComponent } from './find-delivery-review/find-deliver
 import { CreateDeliveryReviewComponent } from './create-delivery-review/create-delivery-review.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
+import { AppService } from './app.service';
+import { HttpModule } from '@angular/http';
+
 const appRoutes: Routes = [
   { path: 'list-drivers', component: ListDriversComponent },
   { path: 'create-driver', component: CreateDriverComponent },
@@ -41,12 +44,16 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     RouterModule.forRoot(
       appRoutes,
       {enableTracing: true }
     )
   ],
-  providers: [],
+  providers: [
+    HttpModule,
+    AppService
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

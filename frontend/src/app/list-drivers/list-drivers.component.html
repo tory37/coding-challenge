@@ -1,3 +1,21 @@
-<p>
-  list-drivers works!
-</p>
+  <div class="col-sm-12">
+    Drivers
+  </div>
+
+<div *ngIf="(drivers$ | async)">
+  <div class="row dark-background">
+    <div class="col-sm-3"> ID </div>
+    <div class="col-sm-3"> Name </div>
+    <div class="col-sm-3"> Latitude </div>
+    <div class="col-sm-3"> Longitude </div>
+  </div>
+  <div class="row" *ngFor="let driver of (drivers$ | async)">
+    <div class="col-sm-3"> {{driver._id}}</div>
+    <div class="col-sm-3"> {{driver.name}}</div>
+    <div class="col-sm-3"> {{driver.location.latitude}} </div>
+    <div class="col-sm-3"> {{driver.location.longitude}} </div>
+  </div>
+</div>
+<div *ngIf="(drivers$ | async) == null">
+  Loading...
+</div>

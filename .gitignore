@@ -56,3 +56,22 @@ typings/
 
 # dotenv environment variables file
 .env
+
+dist/
+backend/favicon.ico
+backend/fontawesome-webfont.674f50d287a8c48dc19b.eot
+backend/fontawesome-webfont.912ec66d7572ff821749.svg
+backend/fontawesome-webfont.af7ae505a9eed503f8b8.woff2
+backend/fontawesome-webfont.b06871f281fee6b241d6.ttf
+backend/fontawesome-webfont.fee66e712a8a08eef580.woff
+backend/index.html
+backend/inline.bundle.js
+backend/inline.bundle.js.map
+backend/main.bundle.js
+backend/main.bundle.js.map
+backend/polyfills.bundle.js
+backend/polyfills.bundle.js.map
+backend/styles.bundle.js
+backend/styles.bundle.js.map
+backend/vendor.bundle.js
+backend/vendor.bundle.js.map
