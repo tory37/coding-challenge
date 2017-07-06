@@ -16,7 +16,7 @@ exports.CreateDriver = function(req, res) {
     var new_driver = new Driver(req.body);
     new_driver.save(function(err, task) {
         if (err)
-            res.send(err);
+            res.send(400, err);
         res.json(task);
     });
 };

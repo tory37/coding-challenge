@@ -25,7 +25,7 @@ exports.CreateDriverReview = function(req, res) {
     try {
         Driver.find({ _id: req.params.driverId }, function(err, drivers) {
             if (err) {
-                res.send(err);
+                res.send(404, err);
                 return;
             }
 
@@ -43,7 +43,7 @@ exports.CreateDriverReview = function(req, res) {
             );
             new_driverReview.save(function(err, task) {
                 if (err)
-                    res.send(err);
+                    res.send(400, err);
                 res.json(task);
             });
         });
@@ -58,7 +58,7 @@ exports.CreateDeliveryReview = function(req, res) {
     try {
         Driver.find({ _id: req.params.driverId }, function(err, drivers) {
             if (err) {
-                res.send(err);
+                res.send(404, err);
                 return;
             }
 
@@ -77,7 +77,7 @@ exports.CreateDeliveryReview = function(req, res) {
             );
             new_deliveryReview.save(function(err, task) {
                 if (err)
-                    res.send(err);
+                    res.send(400, err);
                 res.json(task);
             });
         });
