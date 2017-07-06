@@ -24,6 +24,11 @@ export class CreateDeliveryReviewComponent implements OnInit {
   }
 
   onSubmit(f: NgForm) {
+
+    if (f.value.driverId == "" || !f.value.driverId) {
+      this.review = { error: "Pick a driver." }
+    }
+
     if (f.value.deliveryId == "" || f.value.deliveryId == null) {
       this.review = { error: "Delivery ID cannot be empty." };
       return;

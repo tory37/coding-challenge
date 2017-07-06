@@ -5,7 +5,7 @@
       <option *ngFor="let driver of drivers" [value]="driver._id">{{driver.name}}</option>
     </select>
     <input name="deliveryId" ngModel required #deliveryId="ngModel" placeholder="Enter Delivery ID">
-    <textarea name="description" ngModel required #description="ngModel">Enter Description...</textarea>
+    <input name="description" ngModel required #description="ngModel" placeholder="Enter Description">
     <select [(ngModel)]="rating" name="rating">
       <option [value]="1">1</option>
       <option [value]="2">2</option>
@@ -20,7 +20,7 @@
     Delivery Review Created
     <div class="row dark-background">
       <div class="col-sm-3"> Driver ID </div>
-      <div class="col-sm-3"> Review ID </div>
+      <div class="col-sm-3"> Delivery ID </div>
       <div class="col-sm-3"> Description </div>
       <div class="col-sm-3"> Rating </div>
     </div>
