@@ -16,7 +16,7 @@ function makeServer() {
 
 
     mongoose.Promise = global.Promise;
-    //var mongoUrl = 'mongodb://tory:tor3-7h@ds147882.mlab.com:47882/waitrchallenge';
+
     //var mongoUrl = 'mongodb://' + keys.mongoUser + ':' + keys.mongoPass + '@' + keys.mongoHost  + ':' + keys.mongoPort + '/' + keys.mongoDatabase;
     var mongoUrl = 'mongodb://localhost/Waitrchallengedb';
     console.log(mongoUrl);

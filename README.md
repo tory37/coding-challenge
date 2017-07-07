@@ -9,6 +9,15 @@ Application
 ===========
 https://lit-plateau-64652.herokuapp.com/
 
+How to Run Locally
+==========
+* Assuming mongodb and node are installed:
+* npm install in /frontend and /backend
+* make sure mongo is running locally
+* In /frontend, npm run build
+* In /backend, npm run start
+* go to localhost:3000
+
 Solution
 =======
 * This is a full stack implementation, using the MEAN stack.
@@ -22,6 +31,7 @@ Solution
 Further Improvement
 ===================
 * The biggest thing missing from this solution was a way to create deliveries.  This was left out as a time constraint, and could be easily implemented in the future.  The delivery reviews currently have a delivery id, but these do not reference to specific deliveries as they do not exist in the database.
+* The models are unit tested.  Trouble was had unit testing the controllers, while mocking out mongoose queries. 
 
 Resume
 ======
