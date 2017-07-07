@@ -4,12 +4,12 @@
   "description": "Restful client for driver information and reviews",
   "main": "index.js",
   "engines": {
-	"node": ">=6.11.0"
+    "node": ">=6.11.0"
   },
   "scripts": {
     "start": "node server.js",
-	"watch": "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "nodemon server.js",
+    "test": "mocha spec"
   },
   "keywords": [
     "RESTful",
@@ -22,7 +22,14 @@
   },
   "dependencies": {
     "body-parser": "^1.17.2",
+    "chai": "^4.0.2",
     "express": "^4.15.3",
-    "mongoose": "^4.11.1"
+    "mocha": "^3.4.2",
+    "mongoose": "^4.11.1",
+    "node-mocks-http": "^1.6.4",
+    "should": "^11.2.1",
+    "sinon": "^2.3.6",
+    "sinon-mongoose": "^2.0.2",
+    "supertest": "^3.0.0"
   }
 }

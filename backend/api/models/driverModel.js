@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
 
 var DriverSchema = new Schema({
     id: String,
-    name: String,
+    name: {type: String, required: true},
     location: {
         latitude: Number,
         longitude: Number
