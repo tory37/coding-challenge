@@ -4,7 +4,7 @@ var express = require('express'),
     app = express(),
     port = process.env.PORT || 3000,
 
-    keys = require('./keys.json'),
+    keys = require('./keys'),
 
     mongoose = require('mongoose'),
     Driver = require('./api/models/driverModel'),
@@ -14,7 +14,11 @@ var express = require('express'),
     bodyParser = require('body-parser');
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://' + keys.mongoUser + ':' + keys.mongoPass + '@' + keys.mongoHost  + ':' + keys.mongoPort + '/' + keys.mongoDatabase);
+var mongoUrl = 'mongodb://tory:tor3-7h@ds147882.mlab.com:47882/waitrchallenge';
+//var mongoUrl = 'mongodb://' + keys.mongoUser + ':' + keys.mongoPass + '@' + keys.mongoHost  + ':' + keys.mongoPort + '/' + keys.mongoDatabase;
+console.log(mongoUrl);
+mongoose.connect(mongoUrl);
+//mongoose.connect('mongodb://localhost/Waitrchallengedb');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -25,6 +29,9 @@ app.use(express.static(__dirname));
 var routes = require('./api/routes/driverRoutes');
 routes(app);
 
+/**
+ * Serves angular application
+ */
 app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname, 'index.html'));
 });

@@ -1,54 +1,28 @@
-Coding challenge or existing code?
+Waitr Coding Challenge
 ==================================
 
-The [coding challenge](#coding_challenge.md) is optional if you already have
-some code that you're proud of and can share with us.
+This application allows a user to create drivers and reviews
+for said drivers who make deliveries.  It also allows for creating
+reviews of the deliveries. 
 
-Existing code
--------------
+Application
+===========
+https://lit-plateau-64652.herokuapp.com/
 
-If you have existing code, please follow the following guidelines:
+Solution
+=======
+* This is a full stack implementation, using the MEAN stack.
+* I chose this stack because of my experience with Angular, and the ability to create a project quickly with node, express and mongo. This being a small application, these technologies seemed to be the most appropriate for quickly creating a solution, while allowing it to be easily scaled in the future.
+* I had never written a node api before, so this took the most time.
+* I wrote a simple front end angular application, styling with Bootstrap 4, as I have experience with it. I used the angular-cli to generate the framework, then created the components and service from there.  The front end is minimal, allowing for the needed commands to show the backend working
+* Grunt is used to copy the compiled angular application to the backend directory, which forms the whole app.  This allows me to keep a separation during development.
+* I deployed mongo to Google Cloud Platform, using mLab as it provided 500 MB of storage for free
+* I deployed the application to Heroku, which seemed to be the best choice as far as ease of use and the free tier
 
-* Include a link to the hosted repository (e.g. Github, Bitbucket...). We cannot
-  review archives or single files.
-* The repo should include a README that follows the [principles described
-  below](#readme) In particular, please make sure to include high-level
-  explanation about what the code is doing.
-* Ideally, the code you're providing:
-  * Has been written by you alone. If not, please tell us which part you wrote
-    and are most proud of in the README.
-  * Is leveraging web technologies.
-  * Is deployed and hosted somewhere.
+Further Improvement
+===================
+* The biggest thing missing from this solution was a way to create deliveries.  This was left out as a time constraint, and could be easily implemented in the future.  The delivery reviews currently have a delivery id, but these do not reference to specific deliveries as they do not exist in the database.
 
-Readme
-------
-
-Regardless of whether it's your own code or our coding challenge, write your
-README as if it was for a production service. Include the following items:
-
-* Description of the problem and solution.
-* Whether the solution focuses on back-end, front-end or if it's full stack.
-* Reasoning behind your technical choices, including architectural. Trade-offs
-  you might have made, anything you left out, or what you might do differently
-  if you were to spend additional time on the project.
-* Link to other code you're particularly proud of.
-* Link to your resume or public profile.
-* Link to to the hosted application where applicable.
-
-How we review
--------------
-
-Your application will be reviewed by at least two of our engineers. The
-aspects of your code we will judge include:
-
-* Clarity: does the README clearly explains the problem and solution?
-* Correctness: does the application do what was asked? If there is anything
-  missing, does the README explain why it is missing?
-* Code quality: is the code simple, easy to understand, and maintainable?  Are
-  there any code smells or other red flags?
-* Testing: how thorough are the automated tests? Will they be difficult to
-  change if the requirements of the application were to change?
-* UX: is the web interface understandable and pleasing to use?
-* Technical choices: do choices of libraries, databases, architecture etc. seem
-  appropriate for the chosen application?
-
+Resume
+======
+https://docs.google.com/document/d/1UGMEqBfI7VEo1AYKWEqr4RHzGCz1lei9dX4DVomlq_A/pub

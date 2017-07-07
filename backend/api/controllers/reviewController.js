@@ -5,6 +5,12 @@ var mongoose = require('mongoose'),
     DriverReview = mongoose.model('DriverReviews'),
     DeliveryReview = mongoose.model('DeliveryReviews');
 
+/**
+ * description: Gets a list of reviews of the driver with driverId from params
+ * returns: 
+ *  success: list of reviews for driver
+ *  error: 404
+ */
 exports.GetDriverReviews = function(req, res) {
     DriverReview.find({ driver_id: req.params.driverId }, function(err, driverReviews) {
         if (err)
@@ -13,6 +19,12 @@ exports.GetDriverReviews = function(req, res) {
     })
 }
 
+/**
+ * description: Gets a list of reviews of the driver with driverId from params
+ * returns: 
+ *  success: list of reviews for driver
+ *  error: 404
+ */
 exports.GetDeliveryReviews = function(req, res) {
     DeliveryReview.find({ driver_id: req.params.driverId, delivery_id: req.params.deliveryId }, function(err, deliveryReviews) {
         if (err)
@@ -21,6 +33,12 @@ exports.GetDeliveryReviews = function(req, res) {
     })
 }
 
+/**
+ * description: Creates a review for a driver if it exists
+ * returns: 
+ *  success: the created review
+ *  error: 404 if error finding driver, 400 if error creating review
+ */
 exports.CreateDriverReview = function(req, res) {
     try {
         Driver.find({ _id: req.params.driverId }, function(err, drivers) {
@@ -54,6 +72,12 @@ exports.CreateDriverReview = function(req, res) {
     }
 };
 
+/**
+ * description: Creates a review for a delivery, with a reference to a driver if it exists
+ * returns: 
+ *  success: the created review
+ *  error: 404 if error finding driver, 400 if error creating review
+ */
 exports.CreateDeliveryReview = function(req, res) {
     try {
         Driver.find({ _id: req.params.driverId }, function(err, drivers) {
